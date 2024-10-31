@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artikel | Online Flohmarkt</title>
-    <link rel="stylesheet" href="detail_page_styles.css"> 
+    <link rel="stylesheet" href="../css/detail_page_styles.css">
 </head>
 <body>
     <header>
@@ -16,7 +16,7 @@
         <section class="artikel-bild">
             <div class="bild-container">
                 <button class="nav-button prev" onclick="prevImage()">&#10094;</button>
-                <img id="artikel-bild" src="images/Fahrrad.jpg">
+                <img id="artikel-bild" src="../images/Fahrrad.jpg">
                 <button class="nav-button next" onclick="nextImage()">&#10095;</button>
             </div>
         </section>
@@ -37,7 +37,7 @@
 
     <script>
         // Liste der Bilder
-        const images = ["images/Fahrrad.jpg", "images/Fahrrad2.jpg"]; 
+        const images = ["../images/Fahrrad.jpg", "../images/Fahrrad2.jpg"];
         let currentImageIndex = 0;
     
         // Funktion zum Anzeigen des nächsten Bildes

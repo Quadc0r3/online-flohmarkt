@@ -88,6 +88,7 @@ main {
 .item-info {
     display: flex;
     flex-direction: column;
+    text-decoration: none;
 }
 
 .price {
