@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artikel | Online Flohmarkt</title>
+    <link rel="stylesheet" href="detail_page_styles.css"> 
+</head>
+<body>
+    <header>
+        <a href="main.html" class="back-link">Zurück zur Startseite</a>
+        <h1>Online Flohmarkt</h1>
+    </header>
+
+    <main class="artikel-details">
+        <section class="artikel-bild">
+            <div class="bild-container">
+                <button class="nav-button prev" onclick="prevImage()">&#10094;</button>
+                <img id="artikel-bild" src="images/Fahrrad.jpg">
+                <button class="nav-button next" onclick="nextImage()">&#10095;</button>
+            </div>
+        </section>
+
+        <section class="artikel-info">
+            <h2>Fahrrad</h2>
+            <p class="preis">Preis: 150.00€</p>
+            <p class="beschreibung">
+                Neues Fahrrad.
+            </p>
+            <button class="wahrenkorb-button">In den Wahrenkorb</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Online Flohmarkt</p>
+    </footer>
+
+    <script>
+        // Liste der Bilder
+        const images = ["images/Fahrrad.jpg", "images/Fahrrad2.jpg"]; 
+        let currentImageIndex = 0;
+    
+        // Funktion zum Anzeigen des nächsten Bildes
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            document.getElementById("artikel-bild").src = images[currentImageIndex];
+        }
+    
+        // Funktion zum Anzeigen des vorherigen Bildes
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            document.getElementById("artikel-bild").src = images[currentImageIndex];
+        }
+    </script>
+    
+</body>
+</html>
