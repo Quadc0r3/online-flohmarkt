@@ -1,0 +1,148 @@
+.search-bar {
+    display: flex;
+    margin-top: 1em;
+}
+
+.search-bar input {
+    width: 70%;
+    padding: 0.5em;
+}
+
+.search-bar button {
+    padding: 0.5em;
+    background-color: var(--primary-color);
+    color: var(--button-color);
+    border: none;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 2em;
+}
+
+.filters {
+    flex: 1;
+    padding: var(--padding);
+    background-color: var(--background-color);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-toggle {
+    background-color: var(--primary-color);
+    color: var(--button-color);
+    border: none;
+    padding: 0.5em;
+    cursor: pointer;
+    margin-bottom: 1em;
+    display: none;
+}
+
+.filters .logo img {
+    width: 100px;
+    cursor: pointer;
+    margin-bottom: 1em;
+}
+
+.filters h2 {
+    margin-bottom: 1em;
+}
+
+.filters label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+.filters select,
+.filters input {
+    margin-top: 0.5em;
+    padding: 0.5em;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.search-results {
+    flex: 3;
+    padding: 1em;
+}
+
+.item {
+    display: flex;
+    padding: 1em;
+    border-bottom: 1px solid var(--border-color);
+    align-items: center;
+}
+
+.item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 1em;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.price {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Responsive Design for Portrait Smartphones */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        margin-top: 1em;
+    }
+
+    /* Responsive Sidebar */
+    .filters, .search-bar {
+        width: 100%;
+        margin: 0;
+        padding: 1em;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .filter-toggle {
+        display: block;
+    }
+
+    /* Standardmäßig sind die Filter ausgeblendet */
+    .filter-options {
+        display: none;
+    }
+
+    /* Wenn .active hinzugefügt wird, zeigen wir die Filter an */
+    .filter-options.active {
+        display: block;
+    }
+
+    /* Adjust item layout */
+    .item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .item img {
+        width: 80%;
+        height: auto;
+        margin-bottom: 1em;
+    }
+
+    .search-bar input {
+        width: 100%;
+        margin-bottom: 0.5em;
+    }
+
+    .search-bar button {
+        width: 100%;
+    }
+}
