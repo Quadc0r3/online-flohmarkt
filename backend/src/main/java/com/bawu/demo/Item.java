@@ -3,7 +3,7 @@ package com.bawu.demo;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collation = "Items")
+@Document(collection = "item")
 public class Item {
     @Id
     private String id;
@@ -11,13 +11,15 @@ public class Item {
     private String description;
     private float price;
     private int quantity;
+    private String category;
 
-    public Item(String id, String title, String description, float price, int quantity) {
+    public Item(String id, String title, String description, float price, int quantity, String category) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.price = price;
         this.quantity = quantity;
+        this.category = category;
     }
 
     //Getter Setter
@@ -59,5 +61,13 @@ public class Item {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

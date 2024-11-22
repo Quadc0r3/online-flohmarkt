@@ -37,6 +37,7 @@ public class Controller {
             existingItem.setDescription(item.getDescription());
             existingItem.setPrice(item.getPrice());
             existingItem.setQuantity(item.getQuantity());
+            existingItem.setCategory(item.getCategory());
             return flohmarktRepository.save(existingItem);
         }
         return null;

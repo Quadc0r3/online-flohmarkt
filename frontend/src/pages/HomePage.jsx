@@ -1,7 +1,19 @@
+import axios from "axios";
 import './HomePage.css';
 import ItemCard from '../components/ItemCard.jsx';
+import {useEffect, useState} from "react";
 
 function HomePage() {
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:8080/api')
+        .then(res => {
+            setItems(res.data);
+        })
+        .catch(err => console.log(err));
+    }, []);
+
     return (
         <div className="home-page">
             <header className="home-header">
@@ -12,9 +24,17 @@ function HomePage() {
             <section className="featured-items">
                 <h2>Featured Items</h2>
                 <div className="items-container">
-                    <ItemCard title="Vintage Lamp" price="15€" />
-                    <ItemCard title="Old Record Player" price="45€" />
-                    <ItemCard title="Retro Bicycle" price="120€" />
+                    {items.length > 0 ? (
+                        items.map((item) => (
+                            <ItemCard key={item.id}
+                                      title={item.title}
+                                      price={`${item.price}€`}
+                                      description={item.description}
+                            />
+                        ))
+                    ) : (
+                        <p>Loading items...</p>
+                    )}
                 </div>
             </section>
 
