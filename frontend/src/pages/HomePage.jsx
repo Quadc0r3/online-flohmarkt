@@ -2,16 +2,22 @@ import axios from "axios";
 import './HomePage.css';
 import ItemCard from '../components/ItemCard.jsx';
 import {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 function HomePage() {
     const [items, setItems] = useState([]);
+    const navigate = useNavigate();
+
+    const handleItemClick = (item) => {
+        navigate(`/item/${item.id}`, {state: {item}});
+    }
 
     useEffect(() => {
         axios.get('http://localhost:8080/api')
-        .then(res => {
-            setItems(res.data);
-        })
-        .catch(err => console.log(err));
+            .then(res => {
+                setItems(res.data);
+            })
+            .catch(err => console.log(err));
     }, []);
 
     return (
@@ -26,11 +32,13 @@ function HomePage() {
                 <div className="items-container">
                     {items.length > 0 ? (
                         items.map((item) => (
-                            <ItemCard key={item.id}
-                                      title={item.title}
-                                      price={`${item.price}€`}
-                                      imageURL={item.imageURL}
-                            />
+                            <div key={item.id} onClick={() => handleItemClick(item)}>
+                                <ItemCard key={item.id}
+                                          title={item.title}
+                                          price={`${item.price}€`}
+                                          imageURL={item.imageURL}
+                                />
+                            </div>
                         ))
                     ) : (
                         <p>Loading items...</p>

@@ -1,13 +1,20 @@
-// import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 function ItemDetailPage() {
-    const { id } = useParams();
+    const location = useLocation();
+    const item = location.state?.item;
 
     return (
         <div>
-            <h1>Item Details</h1>
-            <p>Details for item with ID: {id}</p>
+            {item ? (
+                <>
+                    <h1>{item.title}</h1>
+                    <p>Price: {item.price}€</p>
+                    <p>Description: {item.description}</p>
+                </>
+            ) : (
+                <p>Item not found</p>
+            )}
         </div>
     );
 }
