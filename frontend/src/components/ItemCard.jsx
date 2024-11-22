@@ -1,13 +1,12 @@
 // import React from 'react';
 import './ItemCard.css';
 
-function ItemCard({ title, price, description }) {
+function ItemCard({ title, price, imageURL }) {
     return (
         <div className="item-card">
-            <img src="placeholder.jpg" alt={title} />
+            <img src={imageURL} alt={title} className="item-image" />
             <h3>{title}</h3>
-            <p>{description}</p>
-            <button><strong>{price}</strong></button>
+            <p>{price}</p>
         </div>
     );
 }

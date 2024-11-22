@@ -1,7 +1,11 @@
 package com.bawu.demo;
 
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDateTime;
 
 @Document(collection = "item")
 public class Item {
@@ -12,15 +16,24 @@ public class Item {
     private float price;
     private int quantity;
     private String category;
+    private String imageURL;
 
-    public Item(String id, String title, String description, float price, int quantity, String category) {
+    @CreatedDate
+    private LocalDateTime insDate;
+
+    @LastModifiedDate
+    private LocalDateTime updDate;
+
+    public Item(String id, String title, String description, float price, int quantity, String category, String imageURL) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.price = price;
         this.quantity = quantity;
         this.category = category;
+        this.imageURL = imageURL;
     }
+
 
     //Getter Setter
     public String getId() {
@@ -69,5 +82,29 @@ public class Item {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    public LocalDateTime getInsDate() {
+        return insDate;
+    }
+
+    public void setInsDate(LocalDateTime insDate) {
+        this.insDate = insDate;
+    }
+
+    public LocalDateTime getUpdDate() {
+        return updDate;
+    }
+
+    public void setUpdDate(LocalDateTime updDate) {
+        this.updDate = updDate;
     }
 }

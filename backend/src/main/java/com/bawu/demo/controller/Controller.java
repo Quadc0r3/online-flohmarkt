@@ -38,6 +38,7 @@ public class Controller {
             existingItem.setPrice(item.getPrice());
             existingItem.setQuantity(item.getQuantity());
             existingItem.setCategory(item.getCategory());
+            existingItem.setImageURL(item.getImageURL());
             return flohmarktRepository.save(existingItem);
         }
         return null;

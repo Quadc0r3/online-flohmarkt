@@ -29,7 +29,7 @@ function HomePage() {
                             <ItemCard key={item.id}
                                       title={item.title}
                                       price={`${item.price}€`}
-                                      description={item.description}
+                                      imageURL={item.imageURL}
                             />
                         ))
                     ) : (
