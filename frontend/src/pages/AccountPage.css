@@ -1,0 +1,15 @@
+.account-page {
+    text-align: center;
+    margin: 20px;
+}
+
+.auth-options {
+    margin-top: 20px;
+}
+
+.auth-options button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}

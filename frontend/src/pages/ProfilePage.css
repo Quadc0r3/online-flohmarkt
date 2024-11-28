@@ -1,0 +1,12 @@
+.profile-page {
+    text-align: center;
+    margin: 20px;
+}
+
+.profile-page h1 {
+    margin-bottom: 20px;
+}
+
+.profile-page p {
+    font-size: 18px;
+}
