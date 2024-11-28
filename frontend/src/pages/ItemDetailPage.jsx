@@ -24,7 +24,7 @@ function ItemDetailPage() {
     return (
         <div className="item-detail-page">
             <h1>{item.title}</h1>
-            <img src={item.imageURL || 'placeholder.jpg'} alt={item.title} />
+            <img src={item.imageURL} alt={item.title} />
             <p>{item.description}</p>
             <p>Price: {item.price}€</p>
             <p>Quantity Available: {item.quantity}</p>
