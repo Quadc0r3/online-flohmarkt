@@ -1,8 +1,20 @@
 import axios from 'axios';
 
 const API = axios.create({
-    baseURL: 'http://localhost:8080/api/auth',
+    baseURL: 'http://localhost:8080/api',
+    withCredentials: true, //Lässt Session Cookies zu
 });
 
-export const registerUser = (user) => API.post('/register', user);
-export const loginUser = (user) => API.post('/login', user);
+//Post
+export const registerUser = (user) => API.post('/auth/register', user);
+export const loginUser = (user) => API.post('/auth/login', user);
+export const logoutUser = () => API.post('/auth/logout');
+
+//Get
+export const getCurrentUser = (username) =>  API.get(`/auth/${username}`);
+export const getUserItems = (userId) => axios.get(`/userItem/${userId}`);
+
+
+
+//Delete
+export const deleteItem = (itemId) => axios.delete(`/items/${itemId}`);

@@ -3,6 +3,7 @@ package com.bawu.demo.controller;
 
 import com.bawu.demo.Item;
 import com.bawu.demo.ItemRepository;
+import com.bawu.demo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -60,4 +61,9 @@ public class Controller {
         return "Item " + id + " has been deleted";
     }
 
+    @GetMapping("/userItem/{userId}")
+    public List<Item> getUserItems(@PathVariable String userId) {
+        System.out.println(userId);
+        return itemRepository.findByUserId(userId);
+    }
 }

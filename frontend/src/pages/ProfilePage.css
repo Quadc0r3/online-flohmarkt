@@ -1,12 +1,86 @@
+/* General page styling */
 .profile-page {
-    text-align: center;
-    margin: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #2c3e50;
 }
 
-.profile-page h1 {
+/* Header styling */
+.profile-header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
     margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.profile-page p {
-    font-size: 18px;
+.profile-header h1 {
+    margin: 0;
+    color: #3498db;
+}
+
+.profile-header p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+/* Listings section */
+.user-items h2 {
+    color: #34495e;
+    margin-bottom: 15px;
+}
+
+.user-items ul {
+    list-style: none;
+    padding: 0;
+}
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.item-details h3 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+.item-details p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+/* Action buttons */
+.item-actions button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.item-actions button:hover {
+    background-color: #2980b9;
+}
+
+.item-actions button:last-child {
+    background-color: #e74c3c;
+    margin-left: 10px;
+}
+
+.item-actions button:last-child:hover {
+    background-color: #c0392b;
 }

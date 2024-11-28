@@ -1,15 +1,86 @@
+/* Account Page container */
 .account-page {
-    text-align: center;
-    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8f9fa; /* Light background */
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
 }
 
-.auth-options {
-    margin-top: 20px;
+/* Form container */
+.account-page form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
 }
 
-.auth-options button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
+/* Form header */
+.account-page h1 {
+    margin-bottom: 20px;
+    color: #343a40; /* Dark gray */
+    font-size: 1.5rem;
+}
+
+/* Form labels */
+.account-page label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #495057; /* Medium gray */
+}
+
+/* Form inputs */
+.account-page input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da; /* Light gray border */
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #495057;
+}
+
+/* Submit and switch buttons */
+.account-page button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: var(--button-background);
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.account-page button:hover {
+    background-color: var(--button-background-hover);
+}
+
+.account-page .switch-button {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Message styling */
+.account-page p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #6c757d; /* Gray */
+}
+
+/* Switch to Register/Login button */
+.account-page .switch-button {
+    margin-top: 10px;
+    background-color: #28a745; /* Success color */
+}
+
+.account-page .switch-button:hover {
+    background-color: #218838;
 }

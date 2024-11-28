@@ -17,6 +17,8 @@ public class Item {
     private int quantity;
     private String category;
     private String imageURL;
+    private String userId;
+
 
     @CreatedDate
     private LocalDateTime insDate;
@@ -24,7 +26,7 @@ public class Item {
     @LastModifiedDate
     private LocalDateTime updDate;
 
-    public Item(String id, String title, String description, float price, int quantity, String category, String imageURL) {
+    public Item(String id, String title, String description, float price, int quantity, String category, String imageURL, String userId) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -32,6 +34,7 @@ public class Item {
         this.quantity = quantity;
         this.category = category;
         this.imageURL = imageURL;
+        this.userId = userId;
     }
 
 
