@@ -48,7 +48,6 @@ function ItemDetailPage() {
                     {/* Verkäuferinformationen */}
                     <div className="seller-info">
                         <p><strong>Seller:</strong> {item.seller}</p>
-                        <p><strong>Condition:</strong> {item.condition || "New"}</p>
                     </div>
 
                     {/* Buttons für Aktionen */}
