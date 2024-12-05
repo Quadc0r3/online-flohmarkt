@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #343a40; /* Dark theme */
+    background-color: #343a40;
     color: #ffffff;
     font-family: 'Arial', sans-serif;
 }
@@ -20,7 +20,7 @@
 }
 
 .navbar a:hover {
-    background-color: #495057; /* Slightly lighter gray */
+    background-color: #495057;
 }
 
 /* Navbar right section */
@@ -38,7 +38,7 @@
 
 /* Logout button */
 .navbar button {
-    background-color: #dc3545; /* Bootstrap Danger Color */
+    background-color: #dc3545;
     color: #ffffff;
     border: none;
     padding: 8px 12px;
