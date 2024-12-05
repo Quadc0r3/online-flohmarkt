@@ -1,0 +1,38 @@
+.categories {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.category-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.category-list button {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-list button.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.category-list button.active:hover {
+    background-color: #0056b3; /* Dunkleres Blau, wenn aktiv und gehovt */
+}
+
+.category-list button:hover {
+    background-color: #e0e0e0; /* Allgemeine Hover-Farbe */
+}
+
+.category-list button:not(.active):hover {
+    background-color: #d6d6d6; /* Hover-Farbe für inaktive Buttons */
+}
