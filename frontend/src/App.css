@@ -1,9 +1,4 @@
-.App {
-  text-align: center;
-  font-family: Arial, sans-serif;
-  color: #333;
-}
-
-h1 {
-  color: #4CAF50;
+:root {
+  --button-background: #1e1e1e;
+  --button-background-hover: #323131;
 }

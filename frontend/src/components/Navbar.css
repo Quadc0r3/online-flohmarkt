@@ -1,18 +1,53 @@
+/* Navbar container */
 .navbar {
-    background-color: #333;
-    color: white;
-    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 20px;
+    background-color: #343a40; /* Dark theme */
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
 }
 
-.nav-links a {
-    color: white;
-    margin: 0 10px;
+/* Navbar links */
+.navbar a {
+    color: #ffffff;
     text-decoration: none;
+    margin: 0 10px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
-.nav-links a:hover {
-    text-decoration: underline;
+.navbar a:hover {
+    background-color: #495057; /* Slightly lighter gray */
+}
+
+/* Navbar right section */
+.navbar .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Welcome message */
+.navbar .welcome {
+    font-size: 0.9rem;
+    color: #adb5bd;
+}
+
+/* Logout button */
+.navbar button {
+    background-color: #dc3545; /* Bootstrap Danger Color */
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.navbar button:hover {
+    background-color: #c82333;
 }

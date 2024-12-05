@@ -1,13 +1,25 @@
-// import React from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import './ItemDetailPage.css';
 
 function ItemDetailPage() {
     const { id } = useParams();
+    const [item, setItem] = useState(null);
+
+    useEffect(() => {
+        axios.get(`http://localhost:8080/api/${id}`)
+            .then(response => setItem(response.data))
+            .catch(error => console.error(error));
+    }, [id]);
+
+    if (!item) return <p>Loading...</p>;
 
     return (
-        <div>
-            <h1>Item Details</h1>
-            <p>Details for item with ID: {id}</p>
+        <div className="item-detail-page">
+            <h1>{item.title}</h1>
+            <p>{item.description}</p>
+            <p>Price: {item.price}€</p>
         </div>
     );
 }
