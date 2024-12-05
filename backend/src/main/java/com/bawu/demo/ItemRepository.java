@@ -8,4 +8,6 @@ import java.util.List;
 @Repository
 public interface ItemRepository extends MongoRepository<Item, String>{
     List<Item> findByUserId(String userId);
+    List<Item> findByIsDeletedFalse();
+    List<Item> findByUserIdAndIsDeletedFalse(String userId);
 }

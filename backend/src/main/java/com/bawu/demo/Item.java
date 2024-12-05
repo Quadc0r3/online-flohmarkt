@@ -18,6 +18,8 @@ public class Item {
     private String category;
     private String imageURL;
     private String userId;
+    private boolean isDeleted = false;
+    private LocalDateTime endDate;
 
 
     @CreatedDate
@@ -26,7 +28,7 @@ public class Item {
     @LastModifiedDate
     private LocalDateTime updDate;
 
-    public Item(String id, String title, String description, float price, int quantity, String category, String imageURL, String userId) {
+    public Item(String id, String title, String description, float price, int quantity, String category, String imageURL, String userId, LocalDateTime endDate) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -35,6 +37,7 @@ public class Item {
         this.category = category;
         this.imageURL = imageURL;
         this.userId = userId;
+        this.endDate = endDate;
     }
 
 
@@ -109,5 +112,29 @@ public class Item {
 
     public void setUpdDate(LocalDateTime updDate) {
         this.updDate = updDate;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
+    }
+
+    public LocalDateTime getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDateTime endDate) {
+        this.endDate = endDate;
     }
 }

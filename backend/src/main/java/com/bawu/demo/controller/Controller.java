@@ -5,9 +5,12 @@ import com.bawu.demo.Item;
 import com.bawu.demo.ItemRepository;
 import com.bawu.demo.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -24,7 +27,7 @@ public class Controller {
 
     @GetMapping
     public List<Item> getAllItems() {
-        return itemRepository.findAll();
+        return itemRepository.findByIsDeletedFalse();
     }
 
     @GetMapping("/{id}")
@@ -55,15 +58,22 @@ public class Controller {
         return null;
     }
 
-    @DeleteMapping("/{id}")
-    public String deleteItem(@PathVariable String id) {
-        itemRepository.deleteById(id);
-        return "Item " + id + " has been deleted";
+    @DeleteMapping("/items/{id}")
+    public ResponseEntity<String> deleteItem(@PathVariable String id) {
+        //Soft-Delete: um im Notfall die Daten wieder zurück zu bekommen
+        Optional<Item> itemOptional = itemRepository.findById(id);
+        if (itemOptional.isPresent()) { //Schaue: Gibt es das Item überhaupt?
+            Item item = itemOptional.get();
+            item.setDeleted(true);
+            itemRepository.save(item);
+            return ResponseEntity.ok("Item marked as deleted");
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Eyetem not found");
     }
+
 
     @GetMapping("/userItem/{userId}")
     public List<Item> getUserItems(@PathVariable String userId) {
-        System.out.println(userId);
-        return itemRepository.findByUserId(userId);
+        return itemRepository.findByUserIdAndIsDeletedFalse(userId);
     }
 }
