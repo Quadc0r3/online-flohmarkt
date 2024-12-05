@@ -12,9 +12,7 @@ export const logoutUser = () => API.post('/auth/logout');
 
 //Get
 export const getCurrentUser = (username) =>  API.get(`/auth/${username}`);
-export const getUserItems = (userId) => axios.get(`/userItem/${userId}`);
-
-
+export const getUserItems = (userId) => API.get(`/userItem/${userId}`);
 
 //Delete
-export const deleteItem = (itemId) => axios.delete(`/items/${itemId}`);
+export const deleteItem = (itemId) => API.delete(`/items/${itemId}`);
