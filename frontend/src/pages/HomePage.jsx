@@ -26,7 +26,7 @@ function HomePage() {
     };
 
     useEffect(() => {
-        axios.get('http://localhost:8080/api/items')
+        axios.get('http://localhost:8080/api')
             .then(res => {
                 setItems(res.data);
                 setFilteredItems(res.data);

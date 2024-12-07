@@ -14,7 +14,7 @@ function SearchPage() {
 
     // Artikel aus der Datenbank laden
     useEffect(() => {
-        axios.get("http://localhost:8080/api/items")
+        axios.get("http://localhost:8080/api")
             .then((res) => {
                 setAllItems(res.data);
                 extractCategories(res.data);

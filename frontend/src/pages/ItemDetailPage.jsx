@@ -9,7 +9,7 @@ function ItemDetailPage() {
     const [cart, setCart] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/api/items/${id}`)
+        axios.get(`http://localhost:8080/api/${id}`)
             .then((response) => {
                 setItem(response.data);
             })
