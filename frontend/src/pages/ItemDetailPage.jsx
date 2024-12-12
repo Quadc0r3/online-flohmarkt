@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './ItemDetailPage.css';
 
 function ItemDetailPage() {
@@ -9,23 +9,29 @@ function ItemDetailPage() {
     const [cart, setCart] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/api/items/${id}`)
+        axios.get(`http://localhost:8080/api/${id}`)
             .then((response) => {
                 setItem(response.data);
             })
             .catch((error) => {
                 console.error('Error fetching item details:', error);
             });
-    }, [id]); 
+
+        const storedCart = JSON.parse(sessionStorage.getItem('cart')) || [];
+        setCart(storedCart);
+    }, [id]);
 
     if (!item) {
-        return <p>Loading...</p>; 
+        return <p>Loading...</p>;
     }
 
     const addToCart = () => {
-        setCart([...cart, item]); 
-        alert(`${item.title} wurde zum Warenkorb hinzugefügt!`); 
+        const updatedCart = [...cart, item];
+        setCart(updatedCart);
+        sessionStorage.setItem('cart', JSON.stringify(updatedCart));
+        alert(`${item.title} wurde zum Warenkorb hinzugefügt!`);
     };
+
 
     return (
         <div className="item-detail-page">
@@ -47,7 +53,7 @@ function ItemDetailPage() {
 
                     {/* Verkäuferinformationen */}
                     <div className="seller-info">
-                        <p><strong>Seller:</strong> {item.seller}</p>
+                        <p><strong>Seller:</strong> {item.userId}</p>
                     </div>
 
                     {/* Buttons für Aktionen */}

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ItemCard from "../components/ItemCard.jsx";
 import "./SearchPage.css";
+import {useEffect, useState} from "react";
 
 function SearchPage() {
     const [searchTerm, setSearchTerm] = useState(""); // Suchbegriff
@@ -14,7 +14,7 @@ function SearchPage() {
 
     // Artikel aus der Datenbank laden
     useEffect(() => {
-        axios.get("http://localhost:8080/api/items")
+        axios.get("http://localhost:8080/api")
             .then((res) => {
                 setAllItems(res.data);
                 extractCategories(res.data);

@@ -49,6 +49,7 @@ function AccountPage() {
                             sessionStorage.setItem('username', user.username);
 
                             navigate('/profile');
+                            window.location.reload();
                         })
                         .catch(() => setCurrentUser(null));
                 }
