@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getCurrentUser, logoutUser } from '../api';
 import './Navbar.css';
-import { FaShoppingCart, FaUser, FaSearch } from 'react-icons/fa'; // Icons from react-icons
+import { FaShoppingCart, FaUser, FaSearch } from 'react-icons/fa';
 
 function Navbar() {
     const [currentUser, setCurrentUser] = useState(null);
@@ -63,7 +63,7 @@ function Navbar() {
                         <FaUser size={24} title="Account" />
                     </Link>
                 )}
-                {/* Shopping Cart Icon */}
+
                 {cartItems > 0 && (
                     <div className="cart-icon" onClick={() => navigate('/checkout')}>
                         <FaShoppingCart size={24} />

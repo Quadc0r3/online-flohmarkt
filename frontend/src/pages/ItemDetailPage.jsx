@@ -30,6 +30,7 @@ function ItemDetailPage() {
         setCart(updatedCart);
         sessionStorage.setItem('cart', JSON.stringify(updatedCart));
         alert(`${item.title} wurde zum Warenkorb hinzugefügt!`);
+        window.location.reload();
     };
 
 

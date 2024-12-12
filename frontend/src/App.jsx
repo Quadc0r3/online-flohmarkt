@@ -4,6 +4,7 @@ import SearchPage from './pages/SearchPage.jsx';
 import ItemDetailPage from './pages/ItemDetailPage.jsx';
 import AccountPage from './pages/AccountPage';
 import ProfilePage from './pages/ProfilePage';
+import CheckoutPage from './pages/CheckoutPage';
 import Navbar from './components/Navbar.jsx';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
                     <Route path="/item/:id" element={<ItemDetailPage />} />
                     <Route path="/account" element={<AccountPage />} />
                     <Route path="/profile" element={<ProfilePage />} />
+                    <Route path="/checkout" element={<CheckoutPage />} />
                 </Routes>
             </div>
         </Router>
