@@ -1,11 +1,10 @@
-//test
-
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { sellItem } from "../api";
 import './CheckoutPage.css';
 
 function Checkout() {
-    const [cartItems, setCartItems] = useState([]);
+    let [cartItems, setCartItems] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -31,11 +30,34 @@ function Checkout() {
         sessionStorage.setItem('cart', JSON.stringify(updatedCart));
     };
 
-    const handlePurchase = () => {
-        alert('Thank you for your purchase!');
+    const handlePurchase = async () => {
+
+        cartItems = JSON.parse(sessionStorage.getItem('cart'));
+
+        console.log("For Loop:");
+        for ( let i = 0; i < cartItems.length; i++ ) {
+            await sellItem(cartItems[i])
+                .then((response) => {
+                    switch (response.status) {
+                        case 200:
+                            alert('Thank you for your purchase!');
+                            break;
+                    }
+                })
+                .catch((error) => {
+                    if (error.status === 400) {
+                        alert('Item is unfortunately sold out.');
+                        cartItems.splice(i, 1); // remove item form cart
+                        console.log(cartItems);
+                        sessionStorage.setItem('cart', JSON.stringify(cartItems));
+                    }
+                });
+        }
         sessionStorage.removeItem('cart');
         setCartItems([]);
+
         navigate('/'); // Redirect to home or order confirmation page
+        window.location.reload();
     };
 
     const calculateTotal = () => {

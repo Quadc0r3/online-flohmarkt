@@ -13,6 +13,10 @@ export const logoutUser = () => API.post('/auth/logout');
 //Get
 export const getCurrentUser = (username) =>  API.get(`/auth/${username}`);
 export const getUserItems = (userId) => API.get(`/userItem/${userId}`);
+export const getItem = (itemId) => API.get(`/${itemId}`);
 
 //Delete
 export const deleteItem = (itemId) => API.delete(`/items/${itemId}`);
+
+//Put
+export const sellItem = (item) => API.put(`/items/${item.id}`, item);

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getCurrentUser, getUserItems, deleteItem } from "../api"; // deleteItem-API
+import { getCurrentUser, getUserItems, deleteItem } from "../api";
 import { useNavigate } from "react-router-dom";
-import "./ProfilePage.css"; // Für CSS
+import "./ProfilePage.css";
 
 function ProfilePage() {
     const [userItems, setUserItems] = useState([]);
