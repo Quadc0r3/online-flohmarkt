@@ -58,7 +58,7 @@ function ItemDetailPage() {
                     </div>
 
                     {/* Buttons für Aktionen */}
-                    <button className="buy-button">Buy Now</button>
+                    <button className="buy-button">Buy Now (WIP)</button>
                     <button className="add-to-cart-button" onClick={addToCart}>
                         Add to Cart
                     </button>

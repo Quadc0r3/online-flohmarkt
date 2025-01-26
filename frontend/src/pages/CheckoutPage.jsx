@@ -56,8 +56,8 @@ function Checkout() {
         sessionStorage.removeItem('cart');
         setCartItems([]);
 
-        navigate('/'); // Redirect to home or order confirmation page
-        window.location.reload();
+        // navigate('/'); // Redirect to home or order confirmation page
+        // window.location.reload();
     };
 
     const calculateTotal = () => {
