@@ -9,6 +9,7 @@ const API = axios.create({
 export const registerUser = (user) => API.post('/auth/register', user);
 export const loginUser = (user) => API.post('/auth/login', user);
 export const logoutUser = () => API.post('/auth/logout');
+export const addItem = (item) => API.post('/items', item);
 
 //Get
 export const getCurrentUser = (username) =>  API.get(`/auth/${username}`);

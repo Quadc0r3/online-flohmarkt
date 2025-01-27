@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Document(collection = "items")
@@ -19,7 +20,7 @@ public class Item {
     private String imageURL;
     private String userId;
     private boolean isDeleted = false;
-    private LocalDateTime endDate;
+    private LocalDate endDate;
 
 
     @CreatedDate
@@ -28,7 +29,7 @@ public class Item {
     @LastModifiedDate
     private LocalDateTime updDate;
 
-    public Item(String id, String title, String description, float price, int quantity, String category, String imageURL, String userId, LocalDateTime endDate) {
+    public Item(String id, String title, String description, float price, int quantity, String category, String imageURL, String userId, LocalDate endDate) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -130,11 +131,11 @@ public class Item {
         isDeleted = deleted;
     }
 
-    public LocalDateTime getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDateTime endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 }

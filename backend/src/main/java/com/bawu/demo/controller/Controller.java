@@ -9,6 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -20,10 +23,10 @@ public class Controller {
     @Autowired
     private ItemRepository itemRepository;
 
-    @PostMapping
-    public Item createItem(@RequestBody Item item) {
-        return itemRepository.save(item);
-    }
+//    @PostMapping
+//    public Item createItem(@RequestBody Item item) {
+//        return itemRepository.save(item);
+//    }
 
     @GetMapping
     public List<Item> getAllItems() {
@@ -91,10 +94,21 @@ public class Controller {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Item not found");
     }
 
-
     @GetMapping("/userItem/{userId}")
     public List<Item> getUserItems(@PathVariable String userId) {
         return itemRepository.findByUserIdAndIsDeletedFalse(userId);
     }
+
+    @PostMapping("/items")
+    public ResponseEntity<Item> createItem(@RequestBody Item item) {
+        if (item.getUserId() == null || item.getTitle() == null || item.getPrice() < 0) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+        System.out.println("test");
+        item.setDeleted(false); // Standardwert für neue Artikel
+        Item savedItem = itemRepository.save(item);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedItem);
+    }
+
 
 }

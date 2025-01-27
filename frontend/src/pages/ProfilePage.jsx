@@ -56,7 +56,15 @@ function ProfilePage() {
 
     return (
         <div className="profile-page">
-            <h1>Welcome, {currentUser.username}</h1>
+            <div className="profile-header">
+                <h1>Welcome, {currentUser.username}</h1>
+                <button
+                    className="action-button add-item"
+                    onClick={() => navigate("/add-item")}
+                >
+                    Add New Item
+                </button>
+            </div>
             <p>Registered on: {new Date(currentUser.insDate).toLocaleDateString()}</p>
             <h2>Your Listings</h2>
             {userItems.length > 0 ? (
@@ -76,7 +84,8 @@ function ProfilePage() {
                             </div>
                             <div className="profile-item-actions">
                                 <button className="action-button" onClick={() => handleEdit(item.id)}>Edit</button>
-                                <button className="action-button delete" onClick={() => handleDelete(item.id)}>Delete</button>
+                                <button className="action-button delete" onClick={() => handleDelete(item.id)}>Delete
+                                </button>
                             </div>
                         </div>
                     ))}

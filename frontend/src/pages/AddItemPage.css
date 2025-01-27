@@ -1,0 +1,29 @@
+.add-item-page {
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.add-item-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.add-item-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+}
+
+.action-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.action-button:hover {
+    background-color: #0056b3;
+}

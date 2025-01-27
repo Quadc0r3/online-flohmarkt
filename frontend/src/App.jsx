@@ -5,6 +5,7 @@ import ItemDetailPage from './pages/ItemDetailPage.jsx';
 import AccountPage from './pages/AccountPage';
 import ProfilePage from './pages/ProfilePage';
 import CheckoutPage from './pages/CheckoutPage';
+import AddItemPage from './pages/AddItemPage';
 import Navbar from './components/Navbar.jsx';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
                     <Route path="/account" element={<AccountPage />} />
                     <Route path="/profile" element={<ProfilePage />} />
                     <Route path="/checkout" element={<CheckoutPage />} />
+                    <Route path="/add-item" element={<AddItemPage />} />
                 </Routes>
             </div>
         </Router>
