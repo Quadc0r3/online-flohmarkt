@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function AddItemPage() {
     const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
     const [endDate, setEndDate] = useState("");
     const [imageURL, setImageURL] = useState("");
@@ -36,6 +37,15 @@ function AddItemPage() {
                         type="text"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Description:
+                    <input
+                        type="text"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
                         required
                     />
                 </label>

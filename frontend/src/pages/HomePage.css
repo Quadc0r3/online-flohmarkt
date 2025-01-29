@@ -61,7 +61,7 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.category-list button {
+.category-button {
     background-color: #f8f9fa;
     border: 2px solid #ddd;
     padding: 10px 20px;
@@ -71,8 +71,14 @@
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.category-list button:hover {
-    background-color: #ececec;
+.category-button:hover {
+    background-color: #208cff;
     transform: translateY(-3px);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.selected-category {
+    background-color: #007bff;
+    color: white;
+    border-color: #0056b3;
 }
