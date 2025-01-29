@@ -104,8 +104,7 @@ public class Controller {
         if (item.getUserId() == null || item.getTitle() == null || item.getPrice() < 0) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
-        System.out.println("test");
-        item.setDeleted(false); // Standardwert für neue Artikel
+        item.setDeleted(false);
         Item savedItem = itemRepository.save(item);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedItem);
     }
