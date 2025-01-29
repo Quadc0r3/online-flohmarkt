@@ -10,7 +10,7 @@ function HomePage() {
     const navigate = useNavigate();
 
     const handleItemClick = (item) => {
-        navigate(`/item/${item.id}`, {state: {item}});
+        navigate(`item/${item.id}`, {state: {item}});
     }
 
     useEffect(() => {

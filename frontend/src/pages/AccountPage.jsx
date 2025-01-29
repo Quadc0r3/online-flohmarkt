@@ -1,7 +1,7 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {registerUser, loginUser, getCurrentUser, logoutUser} from '../api';
-import '../app.css'
+import '../App.css'
 import './AccountPage.css'
 
 function AccountPage() {
@@ -49,6 +49,7 @@ function AccountPage() {
                             sessionStorage.setItem('username', user.username);
 
                             navigate('/profile');
+                            window.location.reload();
                         })
                         .catch(() => setCurrentUser(null));
                 }

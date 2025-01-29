@@ -1,51 +1,110 @@
+/* Container für die gesamte Detail-Seite */
 .item-detail-page {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 20px;
-    font-family: Arial, sans-serif;
-    color: #333;
-    background-color: #f9f9f9;
-    min-height: 100vh;
+    background-color: #f7f7f7;
 }
 
-.item-detail-page h1 {
-    font-size: 2.5rem;
+/* Hauptcontainer für die Artikel-Daten */
+.item-detail-container {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Container für das große Bild */
+.item-image-container {
+    flex: 1;
+    padding-right: 20px;
+}
+
+/* Bild-Stil */
+.item-detail-image {
+    max-width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Informationen zum Artikel */
+.item-info {
+    flex: 2;
+    padding-left: 20px;
+}
+
+/* Titel des Artikels */
+.item-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
     margin-bottom: 10px;
 }
 
-.item-detail-page p {
-    font-size: 1.2rem;
-    margin: 10px 0;
-    line-height: 1.6;
-}
-
-.item-detail-page img {
-    max-width: 300px;
-    max-height: 300px;
-    margin: 20px 0;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-}
-
-.item-detail-page .price {
+/* Preis des Artikels */
+.item-price {
     font-size: 1.5rem;
-    font-weight: bold;
-    color: #4caf50;
-    margin: 20px 0;
+    color: #B12704;
+    margin-bottom: 20px;
 }
 
-.item-detail-page button {
-    padding: 10px 20px;
+/* Beschreibung des Artikels */
+.item-description {
     font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Verkäuferinformationen */
+.seller-info {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.seller-info p {
+    margin: 5px 0;
+}
+
+/* Button zum Kaufen */
+.buy-button {
+    background-color: #0071e3;
     color: white;
-    background-color: #007bff;
+    font-size: 1.2rem;
+    padding: 12px;
+    width: 100%;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.item-detail-page button:hover {
-    background-color: #0056b3;
+.buy-button:hover {
+    background-color: #005bb5;
+}
+
+.add-to-cart-button {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-size: 1.2rem;
+    padding: 12px;
+    width: 100%;
+    border: 1px solid black; 
+    transition: background-color 0.3s, border-color 0.3s;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart-button:hover {
+    background-color: #dcdcdc;
 }

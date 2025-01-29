@@ -9,6 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -20,10 +23,10 @@ public class Controller {
     @Autowired
     private ItemRepository itemRepository;
 
-    @PostMapping
-    public Item createItem(@RequestBody Item item) {
-        return itemRepository.save(item);
-    }
+//    @PostMapping
+//    public Item createItem(@RequestBody Item item) {
+//        return itemRepository.save(item);
+//    }
 
     @GetMapping
     public List<Item> getAllItems() {
@@ -44,7 +47,7 @@ public class Controller {
     }
 
     @PutMapping("/{id}")
-    public Item updateItem(@PathVariable String id, @RequestBody Item item) {
+    public ResponseEntity<Item> updateItem(@PathVariable String id, @RequestBody Item item) {
         Item existingItem = itemRepository.findById(id).orElse(null);
         if (existingItem != null) {
             existingItem.setTitle(item.getTitle());
@@ -53,27 +56,58 @@ public class Controller {
             existingItem.setQuantity(item.getQuantity());
             existingItem.setCategory(item.getCategory());
             existingItem.setImageURL(item.getImageURL());
-            return itemRepository.save(existingItem);
+            return ResponseEntity.ok().body(itemRepository.save(existingItem));
         }
-        return null;
+        return ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/items/{id}")
+    public ResponseEntity<String> sellItem(@PathVariable String id, @RequestBody Item item) {
+        Item existingItem = itemRepository.findById(id).orElse(null);
+        if (existingItem != null) {
+            if (existingItem.getQuantity() <= 0) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Item is sold out");
+            }
+
+            existingItem.setQuantity(item.getQuantity() - 1);
+
+            // Delete the Item if all of them are sold
+            if (existingItem.getQuantity() <= 0) {
+                existingItem.setDeleted(true);
+            }
+            itemRepository.save(existingItem);
+            return ResponseEntity.ok("Item sold");
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Item not found");
     }
 
     @DeleteMapping("/items/{id}")
     public ResponseEntity<String> deleteItem(@PathVariable String id) {
-        //Soft-Delete: um im Notfall die Daten wieder zurück zu bekommen
+        //Soft-Delete: only set a flag, so you can easily retrieve the data
         Optional<Item> itemOptional = itemRepository.findById(id);
-        if (itemOptional.isPresent()) { //Schaue: Gibt es das Item überhaupt?
+        if (itemOptional.isPresent()) { // Search: does this Item exist?
             Item item = itemOptional.get();
             item.setDeleted(true);
             itemRepository.save(item);
             return ResponseEntity.ok("Item marked as deleted");
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Eyetem not found");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Item not found");
     }
-
 
     @GetMapping("/userItem/{userId}")
     public List<Item> getUserItems(@PathVariable String userId) {
         return itemRepository.findByUserIdAndIsDeletedFalse(userId);
     }
+
+    @PostMapping("/items")
+    public ResponseEntity<Item> createItem(@RequestBody Item item) {
+        if (item.getUserId() == null || item.getTitle() == null || item.getPrice() < 0) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+        item.setDeleted(false);
+        Item savedItem = itemRepository.save(item);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedItem);
+    }
+
+
 }

@@ -1,53 +1,93 @@
-/* Navbar container */
+/* Modernized Navbar Container */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #343a40; /* Dark theme */
+    padding: 15px 30px;
+    background-color: #1c1f24;
     color: #ffffff;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Navbar links */
-.navbar a {
-    color: #ffffff;
+/* Navbar Branding */
+.navbar h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+    color: #f8f9fa;
+}
+
+.navbar h2:hover {
+    color: #adb5bd;
+}
+
+/* Navbar Links Section */
+.navbar-link {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar-link a {
+    color: #f8f9fa;
     text-decoration: none;
-    margin: 0 10px;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.navbar a:hover {
-    background-color: #495057; /* Slightly lighter gray */
+.navbar-link a:hover {
+    background-color: #495057;
+    color: #ffffff;
 }
 
-/* Navbar right section */
+/* Right Section - Includes Cart and Logout */
 .navbar .navbar-right {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-/* Welcome message */
-.navbar .welcome {
-    font-size: 0.9rem;
-    color: #adb5bd;
-}
-
-/* Logout button */
+/* Logout Button */
 .navbar button {
-    background-color: #dc3545; /* Bootstrap Danger Color */
+    background-color: #e63946;
     color: #ffffff;
     border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
+    padding: 8px 15px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 0.9rem;
+    font-weight: bold;
     transition: background-color 0.3s ease;
 }
 
 .navbar button:hover {
-    background-color: #c82333;
+    background-color: #d62839;
+}
+
+/* Shopping Cart Icon */
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.cart-icon:hover {
+    color: #adb5bd;
+}
+
+.cart-icon .cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: #e63946;
+    color: white;
+    font-size: 12px;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
