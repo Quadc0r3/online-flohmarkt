@@ -1,5 +1,5 @@
 # Basis-Image für Node.js
-FROM node:18-alpine AS builder
+FROM node:18-alpine
 
 # Arbeitsverzeichnis erstellen
 WORKDIR /app
@@ -18,8 +18,6 @@ RUN npm run build
 
 # Wechsel zu Nginx für das Hosting
 FROM nginx:alpine
-
-# Dateien aus der ersten Stage kopieren
 COPY --from=0 /app/dist /usr/share/nginx/html
 
 # Port öffnen

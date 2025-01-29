@@ -83,7 +83,7 @@ function ProfilePage() {
                                 <p>End Date: {item.endDate ? new Date(item.endDate).toLocaleDateString() : "N/A"}</p>
                             </div>
                             <div className="profile-item-actions">
-                                <button className="action-button" onClick={() => handleEdit(item.id)}>Edit</button>
+                                {/*<button className="action-button" onClick={() => handleEdit(item.id)}>Edit (WIP)</button>*/}
                                 <button className="action-button delete" onClick={() => handleDelete(item.id)}>Delete
                                 </button>
                             </div>

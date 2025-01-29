@@ -48,7 +48,7 @@ function Checkout() {
                     if (error.status === 400) {
                         alert('Item is unfortunately sold out.');
                         cartItems.splice(i, 1); // remove item form cart
-                        console.log(cartItems);
+                        // console.log(cartItems);
                         sessionStorage.setItem('cart', JSON.stringify(cartItems));
                     }
                 });
@@ -56,8 +56,6 @@ function Checkout() {
         sessionStorage.removeItem('cart');
         setCartItems([]);
 
-        // navigate('/'); // Redirect to home or order confirmation page
-        // window.location.reload();
     };
 
     const calculateTotal = () => {

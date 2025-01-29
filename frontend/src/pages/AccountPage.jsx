@@ -12,12 +12,6 @@ function AccountPage() {
     const [currentUser, setCurrentUser] = useState(null);
     const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     getCurrentUser()
-    //         .then((response) => setCurrentUser(response.data))
-    //         .catch(() => setCurrentUser(null));
-    // }, []);
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
