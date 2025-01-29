@@ -1,27 +1,59 @@
 .add-item-page {
-    padding: 20px;
-    max-width: 500px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background: #f9f9f9;
+    min-height: 100vh;
 }
 
-.add-item-form label {
-    display: block;
-    margin-bottom: 10px;
-}
-
-.add-item-form input {
-    width: 100%;
-    padding: 8px;
+h1 {
+    color: #333;
+    font-size: 2rem;
     margin-bottom: 20px;
 }
 
+.add-item-form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input, select {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+input:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
 .action-button {
-    padding: 10px 20px;
     background-color: #007bff;
     color: white;
+    padding: 12px;
+    margin-top: 20px;
     border: none;
-    cursor: pointer;
     border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .action-button:hover {
