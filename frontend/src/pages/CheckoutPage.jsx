@@ -77,7 +77,7 @@ function Checkout() {
             <ul className="cart-items">
                 {cartItems.map(item => (
                     <li key={item.id} className="cart-item">
-                        <img src={item.image} alt={item.title} className="cart-item-image" />
+                        <img src={item.imageURL} alt={item.title} className="cart-item-image" />
                         <div className="cart-item-details">
                             <h3>{item.title}</h3>
                             <p>Price: ${item.price.toFixed(2)}</p>
